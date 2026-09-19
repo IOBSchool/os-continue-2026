@@ -295,6 +295,26 @@
 
   footer{background:var(--ink);color:#e9ddcd;text-align:center;padding:28px 20px;font-size:12px;line-height:1.9;}
   footer a{color:#f7c9b3;text-decoration:underline;}
+  #fallback{display:none;text-align:center;padding:30px 10px;}
+  #fallback .mincho{font-family:"Zen Old Mincho",serif;font-size:19px;color:var(--point);margin-bottom:14px;}
+  .fallback-btn{
+    display:block;background:var(--point);color:#fff;text-decoration:none;
+    padding:16px;border-radius:12px;font-size:16px;font-weight:700;
+    font-family:"Zen Old Mincho",serif;margin:20px auto;max-width:320px;
+  }
+  .next-steps{list-style:none;text-align:left;margin:20px auto 0;max-width:460px;counter-reset:ns;}
+  .next-steps li{padding:14px 0 14px 34px;position:relative;font-size:14.5px;line-height:1.85;border-bottom:1px dashed var(--line);}
+  .next-steps li:last-child{border-bottom:none;}
+  .next-steps li::before{
+    content:counter(ns);counter-increment:ns;position:absolute;left:0;top:14px;
+    width:24px;height:24px;border-radius:50%;background:var(--point);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
+  }
+  .gift{background:var(--ink);color:#f3e9dc;border-radius:14px;padding:26px 22px;}
+  .gift .badge{display:inline-block;background:var(--point);color:#fff;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:12px;}
+  .gift h3{font-size:20px;line-height:1.6;color:#fff;margin-bottom:12px;}
+  .gift .future li{border-bottom-color:rgba(255,255,255,.18);}
+  .gift .future li .when{color:#ffd7a6;width:96px;}
 </style>
 </head>
 <body>
@@ -480,6 +500,23 @@
     <p>これまで個別にお受けしていた相談も、専門家コースで積み上げた学びも、これからは毎月ひとつの場所で、続けていけます。本来、これだけの時間と場所には、相応の金額がかかります。</p>
     <p>でも私は、<span class="hl">この「挑戦し続ける環境」を、一部の人だけのものにしたくありません</span>。</p>
     <p>だから今回は、モニター価格でご案内します。お願いしたい条件は、<span class="hl">アンケートと取材へのご協力、それだけです</span>。お名前の出し方（イニシャル／フルネーム）やお顔出しの有無は、その際に改めて個別に伺います。今すぐ決めていただく必要はありません。</p>
+  </div>
+</section>
+
+<!-- ============ 同窓会に参加された方へ（最初の1ヶ月無料） ============ -->
+<section id="alumni-gift">
+  <div class="wrap">
+    <div class="gift">
+      <div class="badge">9月20日の同窓会に参加された方だけ</div>
+      <h3>最初の1ヶ月は、無料です。<br>12ヶ月ぶんのお支払いで、13ヶ月お使いいただけます</h3>
+      <p style="font-size:14.5px;">同窓会に来てくださった方は、3つのどの場所を選んでも、最初の1ヶ月を無料でお使いいただけます。お支払いは12ヶ月ぶんのままです。</p>
+      <ul class="future">
+        <li><div class="when">1ヶ月目</div><div class="what">無料</div></li>
+        <li><div class="when">2〜13ヶ月目</div><div class="what">モニター価格（12ヶ月ぶん）</div></li>
+        <li><div class="when">14ヶ月目から</div><div class="what">月払いに切り替わります。続けることも、そこでやめることもできます</div></li>
+      </ul>
+      <p style="font-size:13.5px;opacity:.85;margin-top:10px;">お申し込みフォームの「9月20日の同窓会」で「参加した」を選んでください。</p>
+    </div>
   </div>
 </section>
 
@@ -750,7 +787,7 @@
     <h3 class="sec-title" style="margin-top:34px;">決済方法</h3>
     <table class="pay-table">
       <tr><th>銀行振込（日本・ドイツ）</th><td>一括のみ</td></tr>
-      <tr><th>Stripe／PayPal<br>（全プラン共通）</th><td>一括、または3回までの分割払い（手数料なし）が選べます</td></tr>
+      <tr><th>Stripe／PayPal<br>（全プラン共通）</th><td>一括／3回分割（手数料なし）／最大6回まで<br><span style="font-weight:400;font-size:13px;color:var(--sub);">4回以上をご希望の場合は、手数料を含めた金額でのご案内になります。金額とお支払いリンクは、改めてメールでお送りします。</span></td></tr>
     </table>
     <p style="font-size:12px;color:var(--sub);margin-top:6px;line-height:1.7;">※3回分割は、金額が3で割り切れないため、1回あたりを1ユーロ単位に切り上げています（Daily Letters €94×3回＝€282／Startup Circle €180×3回＝€540／Leaders Lounge €284×3回＝€852）。</p>
     <p class="callout" style="margin-top:18px;">Stripe・PayPalの決済リンクは、お申し込みフォーム送信後の自動返信メールでご案内します。<br><b>お支払いは、お申し込みから3日以内にお願いします。</b></p>
@@ -814,6 +851,13 @@
         </div>
       </div>
       <div class="field">
+        <label>9月20日の同窓会<span class="req">必須</span></label>
+        <div class="radio-row">
+          <label class="radio-opt"><input type="radio" name="alumni" value="参加した" required>参加した<br><span style="font-size:11.5px;color:var(--sub);">最初の1ヶ月無料</span></label>
+          <label class="radio-opt"><input type="radio" name="alumni" value="参加していない">参加していない</label>
+        </div>
+      </div>
+      <div class="field">
         <label>ご希望の決済方法<span class="req">必須</span></label>
         <div class="radio-row">
           <label class="radio-opt"><input type="radio" name="payment" value="銀行振込（日本）" required>銀行振込<br>（日本）</label>
@@ -826,7 +870,8 @@
         <label>お支払い回数<span class="opt">任意・Stripe / PayPal の場合のみ選べます</span></label>
         <div class="radio-row">
           <label class="radio-opt"><input type="radio" name="installment" value="一括" checked>一括</label>
-          <label class="radio-opt"><input type="radio" name="installment" value="3回分割">3回分割</label>
+          <label class="radio-opt"><input type="radio" name="installment" value="3回分割（手数料なし）">3回分割<br><span style="font-size:11.5px;color:var(--sub);">手数料なし</span></label>
+          <label class="radio-opt"><input type="radio" name="installment" value="6回分割（手数料込み）">6回分割<br><span style="font-size:11.5px;color:var(--sub);">手数料込み</span></label>
         </div>
       </div>
       <div class="field">
@@ -836,6 +881,10 @@
           <option value="フルネーム">フルネームで掲載してよい</option>
           <option value="イニシャル">イニシャルで掲載してほしい</option>
         </select>
+      </div>
+      <div class="field">
+        <label>ご紹介者<span class="opt">任意</span></label>
+        <input type="text" name="referrer" placeholder="この場所を教えてくれた方がいれば、お名前を">
       </div>
       <div class="field">
         <label>ご質問・ご連絡事項</label>
@@ -857,9 +906,26 @@
 
     <div id="thanks">
       <div class="mincho">お申し込みありがとうございます。</div>
-      <p>確認のため、ご登録のメールアドレス宛に<br>自動返信メールをお送りしました。<br><br>
-      お支払いのご案内が記載されていますので、<br>ご確認をお願いいたします。<br><br>
-      10月に、一緒に始めましょう。</p>
+      <p>ご登録のメールアドレス宛に、自動返信メールをお送りしました。<br>お支払いのご案内が入っています。</p>
+
+      <p style="margin-top:24px;font-weight:700;">始まるまでに、やっておいてほしいことが3つあります。</p>
+      <ul class="next-steps">
+        <li><b>自動返信メールを開いて、お支払いを済ませてください。</b>迷惑メールに入ることがあるので、届いていなければ school@iob.bio までご連絡ください。</li>
+        <li><b>やってみたいことを、ひとつだけメモしておいてください。</b>まとまっていなくてかまいません。始まったら最初に、それを使います。</li>
+        <li><b>まわりに、同じところで止まっている人はいませんか。</b>もしいたら、このページを教えてあげてください。一人で抱えている人ほど、自分では探しに来られません。<br>
+        <span style="font-size:13px;color:var(--sub);">https://iobschool.github.io/os-continue-2026/</span></li>
+      </ul>
+
+      <p style="margin-top:22px;">10月後半に、一緒に始めましょう。</p>
+    </div>
+
+    <div id="fallback">
+      <div class="mincho">恐れ入ります。あと一手間だけお願いします。</div>
+      <p>ただいまフォームの自動送信が使えない状態です。<br>
+      下のボタンを押すと、入力いただいた内容が入ったメールが開きます。<br>
+      そのまま送信していただければ、確実にお申し込みを受け付けます。</p>
+      <a id="fallbackMail" class="fallback-btn" href="#">メールでお申し込みを送る</a>
+      <p style="font-size:13px;">うまく開かない場合は、<br>お手数ですが <b>school@iob.bio</b> 宛に<br>お名前とご希望のプランをお送りください。</p>
     </div>
   </div>
 </section>
@@ -885,17 +951,46 @@
 </footer>
 
 <script>
-  // ── 受付期限：2026年9月23日23:59（JST）いっぱいで案内を終了 ──
+  // ── 受付期限：2026年9月23日(水)23:59（JST）いっぱいでモニター価格の案内を終了 ──
+  //    🚨締切を動かすときは、ここ・FV下の受付表示・FAQの3ヶ所を必ず揃えること ──
   (function(){
-    var deadline = Date.UTC(2026, 8, 23, 15, 0, 0); // 2026-09-24 00:00 JST
+    var deadline = Date.UTC(2026, 8, 23, 15, 0, 0); // 2026-09-24 00:00 JST（＝9/23 23:59 JSTいっぱい）
     if (Date.now() >= deadline) {
       var note = document.getElementById('deadlineNote');
-      if (note) note.textContent = "受付は終了しました。お問い合わせは school@iob.bio まで。";
+      if (note) note.textContent = "モニター価格でのご案内期間は終了しました。お問い合わせは school@iob.bio まで。";
     }
   })();
 
-  // ▼▼▼ GASをデプロイしたあと、ここにWebアプリのURLを貼り付けてください ▼▼▼
-  const GAS_URL = "PASTE_GAS_WEBAPP_URL_HERE";
+  // 申込先GAS（スプレッドシート「8月既存生販売_申込管理」に紐づくウェブアプリ）
+  // 🚨コードを直したら「デプロイを管理 → 編集 → バージョン：新バージョン」で再デプロイすること。
+  //   新バージョンを選ばないと、直したはずのコードが本番に反映されない。
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbzebRdA-kdzFIXAmkNGMDx-Hp20vm1jvcTn2J2KwFd-mrbvoRmf8Bxm6-NI8ZOM1hY0oA/exec";
+
+  // ── 追従CTA：ファーストビューを過ぎたら出す／フォームに来たら引っ込める ──
+  (function(){
+    var bar = document.getElementById('stickyCta');
+    var formSec = document.getElementById('applyForm');
+    if(!bar || !formSec) return;
+    document.body.classList.add('has-sticky');
+    function update(){
+      var past = window.scrollY > window.innerHeight * 0.9;
+      var atForm = formSec.getBoundingClientRect().top < window.innerHeight;
+      bar.classList.toggle('on', past && !atForm);
+    }
+    window.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // ── プランのボタンから来たら、そのプランを選んだ状態でフォームへ ──
+  document.querySelectorAll('.cta-btn[data-plan]').forEach(function(a){
+    a.addEventListener('click', function(){
+      var want = a.getAttribute('data-plan');
+      document.querySelectorAll('input[name=plan]').forEach(function(r){
+        if(r.value === want) r.checked = true;
+      });
+    });
+  });
 
   const form = document.getElementById('applyForm');
   const btn = document.getElementById('submitBtn');
@@ -912,8 +1007,41 @@
       payment: (form.querySelector('input[name=payment]:checked') || {}).value || "",
       installment: (form.querySelector('input[name=installment]:checked') || {}).value || "",
       monitorName: form.monitorName.value,
-      message: form.message.value
+      referrer: form.referrer.value,
+      alumni: (form.querySelector('input[name=alumni]:checked') || {}).value || "",
+      message: ""
     };
+    // 同窓会の参加有無は、申込管理シートの列を増やさず「ご質問・連絡事項」の先頭に入れる
+    data.message = "【9/20同窓会】" + data.alumni + (form.message.value ? "\n" + form.message.value : "");
+
+    // ── 保険：GAS_URLが未設定のときは「送信できたフリ」をせず、メール申込に切り替える ──
+    // no-cors のfetchはサーバーが404/405を返しても成功扱いになるため、
+    // URLが入っていない状態で完了画面を出すと申込が誰にも届かないまま消える。
+    function showFallback(){
+      var lines = [
+        "お名前：" + data.name,
+        "メールアドレス：" + data.email,
+        "ご希望のプラン：" + data.plan,
+        "ご希望の決済方法：" + data.payment,
+        "お支払い回数：" + data.installment,
+        "モニター表記のご希望：" + data.monitorName,
+        "ご紹介者：" + (data.referrer || "（なし）"),
+        "ご質問・ご連絡事項：" + (data.message || "（なし）")
+      ].join("\n");
+      document.getElementById('fallbackMail').href =
+        "mailto:school@iob.bio"
+        + "?subject=" + encodeURIComponent("お申し込み（" + data.plan + "）" + data.name)
+        + "&body=" + encodeURIComponent("お申し込みします。\n\n" + lines + "\n");
+      form.style.display = "none";
+      var fb = document.getElementById('fallback');
+      fb.style.display = "block";
+      window.scrollTo({top: fb.offsetTop - 40, behavior:"smooth"});
+    }
+
+    if (!GAS_URL || GAS_URL.indexOf("PASTE_") === 0 || GAS_URL.indexOf("http") !== 0) {
+      showFallback();
+      return;
+    }
 
     // GASは exec → googleusercontent へ302リダイレクトされ、POSTがGETに変換されることがある。
     // そのため payload をURLエンコードで送り、GAS側は doPost / doGet の両方で受ける。
@@ -927,11 +1055,10 @@
       document.getElementById('thanks').style.display="block";
       window.scrollTo({top:document.getElementById('thanks').offsetTop-40, behavior:"smooth"});
     }).catch(function(){
-      btn.disabled=false;
-      btn.textContent="この内容で申し込む";
-      alert("送信に失敗しました。お手数ですが、もう一度お試しください。");
+      showFallback();
     });
   });
+
 </script>
 
 </body>
