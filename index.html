@@ -316,8 +316,34 @@
   .gift .future li{border-bottom-color:rgba(255,255,255,.18);}
   .gift .future li .when{color:#ffd7a6;width:96px;}
 </style>
+<script>
+/* ── 公開期間ゲート（2026-09-19 なつこ決定・日本時間）
+   〜9/23(水)23:59：販売 ／ 9/24(木)0:00〜：終了画面だけ（同時刻にリポジトリを非公開にする予約あり）
+   確認用：?preview=close（先の状態だけ見られる・戻せない） */
+window.IOB_PHASE = (function(){
+  var ph = (Date.now() >= Date.UTC(2026, 8, 23, 15, 0, 0)) ? "close" : "sale"; // 9/24 00:00 JST
+  if (new URLSearchParams(location.search).get("preview") === "close") ph = "close";
+  document.documentElement.className += " phase-" + ph;
+  return ph;
+})();
+</script>
+<style>
+  .phase-close body > *:not(#closed):not(script){display:none !important;}
+  #closed{display:none;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:40px 20px;}
+  .phase-close #closed{display:flex;}
+</style>
 </head>
 <body>
+
+<!-- ============ 9/24 0:00〜：終了画面 ============ -->
+<main id="closed">
+  <div>
+    <img src="iob-logo-orange.png" alt="Institut für Organic Business" width="150" style="margin-bottom:26px;">
+    <p style="font-size:18px;font-weight:700;margin-bottom:12px;">お申し込みの受付は終了しました</p>
+    <p style="font-size:14px;line-height:1.9;">ご覧いただき、ありがとうございました。<br>10月4日（日）19:00から、オンラインの体験会を開きます。<br><a href="https://iobschool.github.io/iob-trial-2026/" style="color:var(--point);font-weight:700;">体験会のご案内はこちら</a></p>
+    <p style="font-size:13px;line-height:1.9;margin-top:14px;color:var(--sub);">お問い合わせは school@iob.bio までお送りください。</p>
+  </div>
+</main>
 
 <!-- ============ ① FV：渡すのは環境と仲間（主役＝グルコン） ============ -->
 <header class="hero">
